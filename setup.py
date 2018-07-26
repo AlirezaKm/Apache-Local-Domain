@@ -17,7 +17,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'aldomain=ApacheLocalDomain.app.cli:cli'
+            'apacheld=ApacheLocalDomain.app.cli:cli'
         ]
     }
 )

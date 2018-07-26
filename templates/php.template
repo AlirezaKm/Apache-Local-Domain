@@ -1,12 +1,13 @@
+#v1.1
 <VirtualHost *:80>
     ServerAdmin {server_admin}
     DocumentRoot "{document_root}"
     ServerName {server_name}
     ServerAlias www.{server_name}
-##  Enable HTTP/2
-#    Protocols h2 h2c
-    ErrorLog "/var/log/httpd/default.me-error_log"
-    CustomLog "/var/log/httpd/default.me-access_log" common
+    ##Enable HTTP/2
+    #{enable_http_2}Protocols h2 h2c
+    ErrorLog "/var/log/httpd/{server_name}-error_log"
+    CustomLog "/var/log/httpd/{server_name}-access_log" common
     <Directory "{document_root}">
         Options Indexes FollowSymLinks
         AllowOverride all

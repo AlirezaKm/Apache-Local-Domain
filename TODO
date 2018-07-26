@@ -1,2 +1,9 @@
 [*] TODO: 1 - PHP Support
-[ ] TODO: 2 - WSGI Support
+
+[*] TODO: 2 - WSGI Support
+[*] - TODO: 2.0 - Check mod_wsgi is Enable or Not
+[*] - TODO: 2.1 - Validating Arguments (domain , email)
+[*] - TODO: 2.2 - Create VirtualHost file (read template , mapping , create file)
+[*] - TODO: 2.3 - add domain to /etc/hosts (backup , read template , mapping , write to file)
+
+[ ] TODO: 3 - create Setup file

@@ -1,14 +1,9 @@
-from app.helper import __validEmail, __validUrl, mapping, templateLoader, phpTemplateMaps, error, info
-from app.configs import *
-from app.php.phpHandler import _createVirtualHost, _addToHosts
 import click
+from app.helper import __validEmail, __validUrl, mapping, templateLoader, phpTemplateMaps, error, info, \
+    _createVirtualHost, _addToHosts
+from app.configs import *
 
-
-@click.group()
-def PHP():
-    pass
-
-@PHP.command()
+@click.command()
 @click.option('-d','--domain','domain',
               required=True,
               prompt="Enter Domain Please",
@@ -21,9 +16,15 @@ def PHP():
               required=False,
               default=None,
               help="Your Email (ServerAdmin) , example: example@example.com")
-def php(domain,documentRoot,email):
+@click.option('--http2',"http2",
+              is_flag=True,
+              default=False,
+              help="Enable HTTP2 Protocol"
+              )
+def php(domain,documentRoot,email,http2):
     """
-        Initialize PHP Template to Create Your Local Domain
+    V1.0
+        Initialize PHP Template
     """
     try:
         # validation
@@ -34,7 +35,8 @@ def php(domain,documentRoot,email):
         result = mapping(templateLoader(PHP_TEMPLATE_NAME), phpTemplateMaps(
             server_admin=email,
             document_root=documentRoot,
-            server_name=DOMAIN
+            server_name=DOMAIN,
+            http2=http2
         ))
 
         # Try to Create VirtualHost File

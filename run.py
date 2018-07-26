@@ -1,7 +1,4 @@
-from app.php.cli import PHP
-
-def _init():
-    PHP()
+from app.cli import cli
 
 if __name__ == "__main__":
-    _init()
+    cli()

@@ -1,0 +1,27 @@
+# v1.0
+<VirtualHost *:80>
+    ServerAdmin {email}
+    DocumentRoot "{document_root}"
+    ServerName {domain}
+    ServerAlias www.{domain}
+    ##  Enable HTTP/2
+    #{enable_http_2}Protocols h2 h2c
+    ErrorLog "/var/log/apache2/{domain}-error_log"
+    CustomLog "/var/log/apache2/{domain}-access_log" common
+
+    <Directory {document_root}>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+
+    #{enable_static}Alias /static {document_root}/{static_folder_name}
+    #{enable_static}<Directory {document_root}/{static_folder_name}>
+    #{enable_static}    Require all granted
+    #{enable_static}</Directory>
+
+    WSGIDaemonProcess {domain} python-home={document_root}/{virtualenv_folder_name} python-path={document_root}
+    WSGIProcessGroup {domain}
+    WSGIScriptAlias / {wsgi_script} process-group={domain}
+
+</VirtualHost>

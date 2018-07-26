@@ -1,7 +1,7 @@
 import click
-from app.helper import __validEmail, __validUrl, mapping, templateLoader, phpTemplateMaps, error, info, \
+from ApacheLocalDomain.app.helper import __validEmail, __validUrl, mapping, templateLoader, phpTemplateMaps, error, info, \
     _createVirtualHost, _addToHosts
-from app.configs import *
+from ApacheLocalDomain.app.configs import *
 
 @click.command()
 @click.option('-d','--domain','domain',
@@ -23,7 +23,6 @@ from app.configs import *
               )
 def php(domain,documentRoot,email,http2):
     """
-    V1.0
         Initialize PHP Template
     """
     try:

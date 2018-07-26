@@ -6,4 +6,4 @@
 [*] - TODO: 2.2 - Create VirtualHost file (read template , mapping , create file)
 [*] - TODO: 2.3 - add domain to /etc/hosts (backup , read template , mapping , write to file)
 
-[ ] TODO: 3 - create Setup file
+[*] TODO: 3 - create Setup file

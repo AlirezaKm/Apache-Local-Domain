@@ -1,7 +1,7 @@
 import click
 
-from app.configs import WSGI_TEMPLATE_NAME, HOSTS
-from app.helper import _checkWSGIEnabled, RequiredIF, mapping, templateLoader, wsgiTemplateMaps, __validUrl, \
+from ApacheLocalDomain.app.configs import WSGI_TEMPLATE_NAME, HOSTS
+from ApacheLocalDomain.app.helper import _checkWSGIEnabled, RequiredIF, mapping, templateLoader, wsgiTemplateMaps, __validUrl, \
     __validEmail, error, info, _createVirtualHost, _addToHosts
 
 
@@ -54,7 +54,6 @@ def wsgi(
         http2,
 ):
     """
-    V1.0
         Initialize WSGI Template
     """
     try:

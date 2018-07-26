@@ -2,7 +2,7 @@ import os, logging
 
 import click
 from validators import domain as domainValidator , email as emailValidator
-import app.configs as configs
+import ApacheLocalDomain.app.configs as configs
 logging.basicConfig(format='[E] %(message)s', level=logging.ERROR)
 
 

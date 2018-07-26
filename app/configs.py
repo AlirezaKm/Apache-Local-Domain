@@ -5,16 +5,13 @@ DEBUG = False
 APACHE2_MODULES_PATH = "/etc/apache2/mods-enabled"
 
 # HOSTS file
-#HOSTS = '/etc/hosts'
-HOSTS = '/tmp/hosts'
+HOSTS = '/etc/hosts'
 
 # VirtualHosts PATH
-# VIRTUAL_HOSTS_PATH = "/etc/apache2/sites-available/"
-VIRTUAL_HOSTS_PATH = "/tmp/"
+VIRTUAL_HOSTS_PATH = "/etc/apache2/sites-available/"
 
 # VirtualHost file Extension
 EXTENSION = ".conf"
-
 
 # Template Informations
 TAMPLATES_FOLDER = "templates"

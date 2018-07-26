@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerAdmin {server_admin}
+    DocumentRoot "{document_root}"
+    ServerName {server_name}
+    ServerAlias www.{server_name}
+##  Enable HTTP/2
+#    Protocols h2 h2c
+    ErrorLog "/var/log/httpd/default.me-error_log"
+    CustomLog "/var/log/httpd/default.me-access_log" common
+    <Directory "{document_root}">
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Require all granted
+    </Directory>
+</VirtualHost>

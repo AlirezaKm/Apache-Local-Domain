@@ -4,7 +4,7 @@ setup(
     name='Apache-Local-Domain',
     version='1.0.4',
     packages=find_packages(exclude=['.venv', 'build', 'dist', 'Apache_Local_Domain.egg-info']),
-    url='',
+    url='https://gitlab.com/toys-projects/Apache-Local-Domain',
     license='GPLv3',
     author='Alireza Km',
     author_email='alitm28@gmail.com',

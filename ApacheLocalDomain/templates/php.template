@@ -6,8 +6,8 @@
     ServerAlias www.{server_name}
     ##Enable HTTP/2
     #{enable_http_2}Protocols h2 h2c
-    ErrorLog "/var/log/httpd/{server_name}-error_log"
-    CustomLog "/var/log/httpd/{server_name}-access_log" common
+    ErrorLog "/var/log/apache2/{server_name}-error_log"
+    CustomLog "/var/log/apache2/{server_name}-access_log" common
     <Directory "{document_root}">
         Options Indexes FollowSymLinks
         AllowOverride all

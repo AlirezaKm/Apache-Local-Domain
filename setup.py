@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='Apache-Local-Domain',
-    version='1.0.2',
-    packages=find_packages(exclude=['.venv']),
+    version='1.0.3',
+    packages=find_packages(exclude=['.venv', 'build', 'dist', 'Apache_Local_Domain.egg-info']),
     url='',
     license='GPLv3',
     author='Alireza Km',
@@ -15,6 +15,7 @@ setup(
         'six',
         'validators',
     ],
+    include_package_data=True,
     entry_points={
         'console_scripts': [
             'apacheld=ApacheLocalDomain.app.cli:cli'

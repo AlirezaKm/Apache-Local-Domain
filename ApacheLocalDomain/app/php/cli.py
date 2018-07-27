@@ -1,7 +1,11 @@
 import click
-from ApacheLocalDomain.app.helper import __validEmail, __validUrl, mapping, templateLoader, phpTemplateMaps, error, info, \
-    _createVirtualHost, _addToHosts
-from ApacheLocalDomain.app.configs import *
+
+from ApacheLocalDomain.app.configs import PHP_TEMPLATE_NAME, HOSTS
+from ApacheLocalDomain.app.lib.checkers import __validUrl, __validEmail, _checkHTTP2Enabled, __phpAddressValidation
+from ApacheLocalDomain.app.lib.file_handlers import _createVirtualHost, _addToHosts
+from ApacheLocalDomain.app.lib.log import error, info
+from ApacheLocalDomain.app.lib.template_handlers import mapping, templateLoader, phpTemplateMaps
+
 
 @click.command()
 @click.option('-d','--domain','domain',
@@ -26,9 +30,14 @@ def php(domain,documentRoot,email,http2):
         Initialize PHP Template
     """
     try:
+        # Check Enable HTTP2 or NOT
+        if http2:
+            _checkHTTP2Enabled()
+
         # validation
         DOMAIN = __validUrl(domain)
         email = __validEmail(email if email else "admin@{}".format(DOMAIN))
+        __phpAddressValidation(documentRoot)
 
         # get Result
         result = mapping(templateLoader(PHP_TEMPLATE_NAME), phpTemplateMaps(

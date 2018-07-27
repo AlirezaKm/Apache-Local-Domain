@@ -1,18 +1,18 @@
 # DEBUG
-DEBUG = False
+DEBUG = {DEBUG}
 
 # apache2 modules PATH
-APACHE2_MODULES_PATH = "/etc/apache2/mods-enabled/"
+APACHE2_MODULES_PATH = "{APACHE2_MODULES_PATH}"
 
 # HOSTS file
-HOSTS = '/etc/hosts'
+HOSTS = '{HOSTS}'
 
 # VirtualHosts PATH
-VIRTUAL_HOSTS_ENABLED_PATH = "/etc/apache2/sites-enabled/"
-VIRTUAL_HOSTS_AVAILABLE_PATH = "/etc/apache2/sites-available/"
+VIRTUAL_HOSTS_ENABLED_PATH = "{VIRTUAL_HOSTS_ENABLED_PATH}"
+VIRTUAL_HOSTS_AVAILABLE_PATH = "{VIRTUAL_HOSTS_AVAILABLE_PATH}"
 
 # VirtualHost file Extension
-EXTENSION = ".conf"
+EXTENSION = "{EXTENSION}"
 
 # Template Informations
 TAMPLATES_FOLDER = "templates"

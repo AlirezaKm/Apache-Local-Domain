@@ -1,8 +1,12 @@
 import click
 
 from ApacheLocalDomain.app.configs import WSGI_TEMPLATE_NAME, HOSTS
-from ApacheLocalDomain.app.helper import _checkWSGIEnabled, RequiredIF, mapping, templateLoader, wsgiTemplateMaps, __validUrl, \
-    __validEmail, error, info, _createVirtualHost, _addToHosts
+from ApacheLocalDomain.app.lib.checkers import _checkWSGIEnabled, __validUrl, __validEmail, _checkHTTP2Enabled, \
+    __wsgiAddressValidation
+from ApacheLocalDomain.app.lib.cli_helpers import RequiredIF
+from ApacheLocalDomain.app.lib.file_handlers import _createVirtualHost, _addToHosts
+from ApacheLocalDomain.app.lib.log import error, info
+from ApacheLocalDomain.app.lib.template_handlers import mapping, templateLoader, wsgiTemplateMaps
 
 
 @click.command()
@@ -57,12 +61,22 @@ def wsgi(
         Initialize WSGI Template
     """
     try:
+        # Check Enable HTTP2 or NOT
+        if http2:
+            _checkHTTP2Enabled()
         # Check Enable WSGI or NOT
         _checkWSGIEnabled()
 
         # validation
         DOMAIN = __validUrl(domain)
         email = __validEmail(email if email else "admin@{}".format(DOMAIN))
+        __wsgiAddressValidation(
+            documentRoot,
+            wsgiScript,
+            virtualenv,
+            StaticFolderName,
+            enable_static
+        )
 
         # Load and Mapping
         result = mapping(templateLoader(WSGI_TEMPLATE_NAME),wsgiTemplateMaps(

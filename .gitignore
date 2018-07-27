@@ -3,3 +3,4 @@
 dist
 build
 Apache_Local_Domain.egg-info
+*.pyc

@@ -8,7 +8,8 @@ APACHE2_MODULES_PATH = "/etc/apache2/mods-enabled"
 HOSTS = '/etc/hosts'
 
 # VirtualHosts PATH
-VIRTUAL_HOSTS_PATH = "/etc/apache2/sites-enabled/"
+VIRTUAL_HOSTS_ENABLED_PATH = "/etc/apache2/sites-enabled/"
+VIRTUAL_HOSTS_AVAILABLE_PATH = "/etc/apache2/sites-available/"
 
 # VirtualHost file Extension
 EXTENSION = ".conf"

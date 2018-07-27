@@ -109,10 +109,11 @@ def _createVirtualHost(domain,content):
     :return: True if File Created , False if Not Created
     """
     try:
-        VirtualHostFileAddress = "{}{}{}".format(configs.VIRTUAL_HOSTS_PATH, domain, configs.EXTENSION)
+        VirtualHostFileAddress = "{}{}{}".format(configs.VIRTUAL_HOSTS_AVAILABLE_PATH, domain, configs.EXTENSION)
         with open(VirtualHostFileAddress,'w') as file:
             file.write(content)
         info("VirtualHost Created On '{}'".format(VirtualHostFileAddress))
+        _setLinkTo(VirtualHostFileAddress)
         return True
     except Exception as e:
         error('_createVirtualHost from helper file', (e))
@@ -147,6 +148,16 @@ def _addToHosts(domain):
         return True
     except Exception as e:
         error('_addToHosts from helper file', (e))
+
+
+def _setLinkTo(thisFile):
+    import os
+    try:
+        link = thisFile.replace(configs.VIRTUAL_HOSTS_AVAILABLE_PATH, configs.VIRTUAL_HOSTS_ENABLED_PATH)
+        os.link(thisFile, link)
+        info('Linked file "{}" to "{}"'.format(thisFile, link))
+    except Exception as e:
+        error('_setLinkTo from helper file', e)
 
 def error(From, msg , DEBUG = configs.DEBUG):
     if DEBUG:

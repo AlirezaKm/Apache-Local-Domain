@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Apache-Local-Domain',
-    version='1.0.3',
+    version='1.0.4',
     packages=find_packages(exclude=['.venv', 'build', 'dist', 'Apache_Local_Domain.egg-info']),
     url='',
     license='GPLv3',

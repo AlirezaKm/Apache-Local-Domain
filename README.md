@@ -12,7 +12,7 @@ Create Local Domain for Apache Web Service
 ##### Other Distros (Arch , Fedora , ...)
     $ git clone https://gitlab.com/toys-projects/Apache-Local-Domain.git
     $ cd Apache-Local-Domain
-    $ python3 setup --help customize-configs    
+    $ python3 setup.py --help customize-configs    
     ...
     Options for 'CustomizeConfigurations' command:
       --debug-mode (-d)                    Debug mode [False]

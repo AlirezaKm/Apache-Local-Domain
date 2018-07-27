@@ -85,6 +85,7 @@ setup(
     author_email='alitm28@gmail.com',
     description='Create Domain in Localhost on Apache2',
     long_description=readme(),
+    long_description_content_type='text/markdown',
     install_requires=[
         'click',
         'decorator',

@@ -60,7 +60,9 @@ Create Local Domain for Apache Web Service
       --help             Show this message and exit.
       
 #### Note
-    To use This Program You should Run it with `sudo`    
+    * To use This Program You should Run it with `sudo`
+    * Just Support Debian Base Distros
+    
 #### TODO
 - [ ] Check enable http2 module or not
 - [ ] link Configure file to /etc

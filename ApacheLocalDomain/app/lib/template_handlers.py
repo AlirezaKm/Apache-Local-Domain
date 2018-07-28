@@ -6,7 +6,7 @@ from ApacheLocalDomain.app.lib.log import error
 
 def templateLoader(template):
     file = "{}/{}/{}".format(
-        os.path.abspath("{}/../..".format(__file__)),
+        os.path.abspath("{}/../../..".format(__file__)),
         configs.TAMPLATES_FOLDER,
         template
     )

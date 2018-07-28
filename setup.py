@@ -77,7 +77,7 @@ class CustomizeConfigurations(Command):
 
 setup(
     name='Apache-Local-Domain',
-    version='1.1.0',
+    version='1.1.2',
     packages=find_packages(exclude=['.venv', 'build', 'dist', 'Apache_Local_Domain.egg-info']),
     url='https://gitlab.com/toys-projects/Apache-Local-Domain',
     license='GPLv3',
@@ -85,7 +85,7 @@ setup(
     author_email='alitm28@gmail.com',
     description='Create Domain in Localhost on Apache2',
     long_description=readme(),
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     install_requires=[
         'click',
         'decorator',
@@ -100,5 +100,10 @@ setup(
     },
     cmdclass={
         'customize_configs': CustomizeConfigurations
-    }
+    },
+    classifiers=(
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GPLv3 License",
+        "Operating System :: OS Independent",
+    ),
 )
